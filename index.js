@@ -19,7 +19,7 @@ const questions = [
     }
   },
   {
-      type: 'input',
+      type: 'editor',
       name: 'description',
       message: 'Please hit enter to open default editor to provide the description and save & close once done? (Required)',
       validate: descriptionInput => {
@@ -33,7 +33,7 @@ const questions = [
 
   },
   {
-      type: 'input',
+      type: 'editor',
       name: 'usage',
       message: 'Please hit enter to open default editor to provide the usage of the application and save & close once done? (Required)',
       validate: usageInput => {
@@ -52,10 +52,35 @@ const questions = [
     message: 'Choose a License?',
     choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
   },
+  {
+    type: 'input',
+    name: 'github',
+    message: 'What is your github username? (Required)',
+    validate: githubInput => {
+      if (githubInput) {
+        return true;
+      } else {
+        console.log('Please enter your github username!');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your email? (Required)',
+    validate: emailInput => {
+      if (emailInput) {
+        return true;
+      } else {
+        console.log('Please enter your email!');
+        return false;
+      }
+    }
+  }
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+const writeToFile = (fileName, data) => {
 
   return new Promise((resolve, reject) => {
     fs.writeFile(fileName, data, err => {
@@ -63,7 +88,6 @@ function writeToFile(fileName, data) {
         reject(err);
         return;
       }
-
       resolve({
         ok: true,
         message: 'File created!'
@@ -100,8 +124,6 @@ const promptConfirmInstallation = data => {
 };
 
 const promptInstallation = data => {
-
-  // If there's no 'projects' array property, create one
   if (!data.installationSteps) {
     data.installationSteps = [];
   }
@@ -193,7 +215,7 @@ const promptTests = data => {
         type: 'input',
         name: 'test',
         message: 'Provide a test',
-        when: ({ confirmAddTest }) => confirmAddTest,
+        when: ({ confirmTest }) => confirmTest,
         default: ''
       }
     ])
@@ -201,12 +223,12 @@ const promptTests = data => {
       if(answer.test !== ''){
         data.tests.push(answer);
       }
-      if(answer.confirmAddTest){
+      if(answer.confirmTest){
         return promptTests(data)
-      } else {
+      } else  {
         data.tests.pop();
         if(data.tests.length === 0){
-          data.tests = [{test: 'no test provided'}]
+          data.tests.push({test: 'no test provided'})
         }
         return data
       }
@@ -225,7 +247,7 @@ function init() {
     })
     .then(markdownTemplate => {
       return writeToFile('./dist/README.md', markdownTemplate);
-    })
+    }) 
     .catch(err => {
       console.log(err);
     });
