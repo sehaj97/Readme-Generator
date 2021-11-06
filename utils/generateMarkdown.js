@@ -1,18 +1,13 @@
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if(license !== 'The Unlicense'){
-    license = license + '-100%25-blue';
+    license = license + '--blue';
   } else {
-    license = '';
+    license = 'No%20License--blue';
   }
   return license.split(" ").join("%20");
 }
  
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
   if(license === 'GNU AGPLv3'){
     return 'https://choosealicense.com/licenses/agpl-3.0/'
@@ -33,8 +28,6 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
   if(license === 'The Unlicense' ){
     return ''
@@ -44,7 +37,7 @@ function renderLicenseSection(license) {
 This Application is covered under [${license}](${renderLicenseLink(license)})`
 }
 
-// TODO: Create a function to generate markdown for README
+
 function generateMarkdown(data) {
   return `# ${data.title}
 
@@ -56,16 +49,16 @@ ${data.description}
   
 ## Table of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributions](#contributions)
-* [License](#license)
-* [Test](#test)
-* [Questions](#questions)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributions](#contributions)
+- [License](#license)
+- [Test](#test)
+- [Questions](#questions)
   
 ## Installation
   
-${data.installationSteps.map(stepsObject => {return '* ' + stepsObject.step + '\n'}).join('')}
+${data.installationSteps.map(stepsObject => {return '- ' + stepsObject.step + '\n'}).join('')}
   
 ## Usage
   
@@ -73,18 +66,17 @@ ${data.usage}
 
 ## Contributions
   
-${data.contributions.map(contributionObject => {return '* ' + contributionObject.contribution + '\n'}).join('')}
+${data.contributions.map(contributionObject => {return '- ' + contributionObject.contribution + '\n'}).join('')}
 
 ${renderLicenseSection(data.license)}
 
 ## Test
   
-${data.tests.map(testObject => {return '* ' + testObject.test + '\n'}).join('')}
+${data.tests.map(testObject => {return '- ' + testObject.test + '\n'}).join('')}
 
 ## Questions
 
-My Github Username: ${data.github}
-[${data.github}](https://github.com/${data.github})
+My Github Username: [${data.github}](https://github.com/${data.github})
 
 you can reach me via email [${data.email}](mailto:${data.email})
 

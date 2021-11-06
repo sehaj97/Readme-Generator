@@ -1,50 +1,46 @@
-# f
+# ss
 
-![license badge](https://img.shields.io/badge/GNU%20AGPLv3-100%25-blue)
+![license badge](https://img.shields.io/badge/GNU%20GPLv3--blue)
   
 ## Description
   
-f
+ioli
   
 ## Table of Contents
 
-- [f](#f)
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributions](#contributions)
-  - [License](#license)
-  - [Test](#test)
-  - [Questions](#questions)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributions](#contributions)
+- [License](#license)
+- [Test](#test)
+- [Questions](#questions)
   
 ## Installation
   
-* no steps were provided
+- no steps were provided
 
   
 ## Usage
   
-f
+kjljk
 
 ## Contributions
   
-* no contribution provided
+- no contribution provided
 
 
 ## License
 
-This Application is covered under [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/)
+This Application is covered under [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
 
 ## Test
   
-* no test provided
+- no test provided
 
 
 ## Questions
 
-My Github Username: sehaj97
-[sehaj97](https://github.com/sehaj97)
+My Github Username: [gh](https://github.com/gh)
 
-you can reach me via email [sehamagan@gmail.com](mailto:sehamagan@gmail.com)
+you can reach me via email [gf](mailto:gf)
 

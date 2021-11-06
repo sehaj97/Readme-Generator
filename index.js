@@ -84,6 +84,8 @@ const writeToFile = (fileName, data) => {
 
   return new Promise((resolve, reject) => {
     fs.writeFile(fileName, data, err => {
+      
+      console.log('file is generated in dist folder with the name of README.md!');
       if (err) {
         reject(err);
         return;
@@ -242,7 +244,7 @@ function init() {
     .then(data => promptContributions(data))
     .then(data => promptTests(data))
     .then(data => {
-      console.log(data);
+      console.log('file will be generated soon!');
       return generateMarkdown(data)
     })
     .then(markdownTemplate => {
